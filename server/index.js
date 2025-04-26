@@ -9,11 +9,13 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true });
 
-const waterDataRoute = require('./routes/waterData');
+// Comment out these 2 lines 👇
+/* const waterDataRoute = require('./routes/waterData');
+app.use('/api/water-data', waterDataRoute); */
+
 const weatherRoute = require('./routes/weather');
 const alertsRoute = require('./routes/alerts');
 
-app.use('/api/water-data', waterDataRoute);
 app.use('/api/weather', weatherRoute);
 app.use('/api/alerts', alertsRoute);
 
